@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff4655">
+  <meta name="description" content="Escolha os agentes que quer jogar e deixe a sorte decidir seu próximo agente no Valorant.">
+  <title>Agent Shuffle — Seu próximo agente</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="agents.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="shuffle" viewBox="0 0 24 24"><path d="M3 6h4l10 12h4M17 14l4 4-4 4M3 18h4l4-5M14 9l3-3h4M17 2l4 4-4 4"/></symbol>
+    <symbol id="search-icon" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></symbol>
+    <symbol id="check" viewBox="0 0 12 12"><path d="M2 6l3 3 5-6"/></symbol>
+    <symbol id="cross" viewBox="0 0 12 12"><path d="m3 3 6 6M9 3 3 9"/></symbol>
+  </svg>
+  <header class="topbar">
+    <a href="./index.html" class="brand" aria-label="Agent Shuffle, início"><svg class="icon" aria-hidden="true"><use href="#shuffle"/></svg>AGENT SHUFFLE.</a>
+    <span class="tagline">UM AGENTE. UMA NOVA PARTIDA.</span>
+    <span class="for-valorant">FEITO PARA VALORANT</span>
+  </header>
+  <main class="page">
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow">MENOS INDECISÃO, MAIS JOGO</p><h1 id="title">Seu próximo main?<br>Deixa com a sorte.</h1></div>
+      <p class="intro-copy">Escolha quem entra no sorteio.<br>A gente decide quem entra na partida.</p>
+    </section>
+    <div class="workspace">
+      <section class="selection" aria-labelledby="selection-title">
+        <div class="selection-heading">
+          <div class="selection-title"><h2 id="selection-title">Sua seleção</h2><span id="selection-count"></span></div>
+          <div class="selection-actions"><button type="button" id="select-all">Selecionar todos</button><button type="button" id="clear-selection">Limpar seleção</button></div>
+        </div>
+        <div class="controls">
+          <label class="search"><svg class="icon" aria-hidden="true"><use href="#search-icon"/></svg><span class="sr-only">Buscar agente</span><input id="search" type="search" placeholder="Buscar agente..." autocomplete="off" maxlength="80"></label>
+          <div id="role-filters" class="filters" role="group" aria-label="Filtrar agentes por função"></div>
+          <p class="filter-note">Busca e filtros mudam a visualização. O sorteio usa todos os agentes selecionados.</p>
+        </div>
+        <div id="agent-grid" class="agent-grid" aria-label="Agentes disponíveis"></div>
+        <div id="no-results" class="no-results" hidden><strong>Nenhum agente encontrado.</strong><p>Tente outro nome ou outra função.</p><button id="reset-filters" type="button">Limpar busca e filtros</button></div>
+        <div class="selection-help"><span>Clique em um agente para incluir ou excluir do sorteio.</span><span id="excluded-count"></span></div>
+      </section>
+      <aside class="result" aria-label="Resultado do sorteio">
+        <div class="result-status"><span class="eyebrow">SEU AGENTE DA VEZ</span><span id="draw-status" class="draw-status"><i></i><span>Pronto para sortear</span></span></div>
+        <div id="empty-art" class="empty-art"><svg class="icon" aria-hidden="true"><use href="#shuffle"/></svg><span>QUEM VEM?</span><div class="art-accent"></div></div>
+        <div id="portrait-stage" class="portrait-stage" hidden><span id="portrait-name" aria-hidden="true"></span><div class="art-accent"></div><img id="result-image" alt=""></div>
+        <div class="result-info"><p id="result-role" class="eyebrow">DEIXE O DESTINO ESCOLHER</p><h2 id="result-title">Quem vai<br>pra partida?</h2><p id="result-copy">Sua seleção, uma surpresa. Bora descobrir?</p></div>
+        <div class="result-action"><button id="draw" class="draw-button" type="button"><svg class="icon" aria-hidden="true"><use href="#shuffle"/></svg><span>Sortear agente</span></button><p id="draw-odds"></p><p id="selection-warning" class="selection-warning" hidden>Selecione pelo menos um agente para sortear.</p></div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      </aside>
+    </div>
+    <div class="storage-message" id="storage-message" role="status" hidden>O navegador não permitiu salvar suas escolhas. Elas continuam funcionando enquanto esta página estiver aberta.</div>
+    <footer><span>VOCÊ ESCOLHE AS POSSIBILIDADES. A SORTE ESCOLHE O AGENTE.</span><span>Projeto de fã · Sem vínculo com a Riot Games</span></footer>
+  </main>
+  <noscript>Ative o JavaScript do navegador para usar o sorteador.</noscript>
+</body>
+</html>

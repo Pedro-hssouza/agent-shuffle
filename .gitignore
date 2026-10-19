@@ -1,0 +1,23 @@
+# Dependências e ambientes locais
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Arquivos gerados
+release/
+coverage/
+*.log
+
+# Editor e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Configuração local
+.env
+.env.*
+!.env.example

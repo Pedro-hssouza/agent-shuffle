@@ -1,0 +1,16 @@
+{
+  "name": "agent-shuffle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sorteador de agentes de Valorant com seleção personalizada e funcionamento offline.",
+  "scripts": {
+    "start": "python -m http.server 8000 --bind 127.0.0.1",
+    "test": "node --test tests/core.test.cjs",
+    "check": "node --check app.js && node --check core.js && node --check agents.js",
+    "build:standalone": "python scripts/build_standalone.py"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": ["valorant", "randomizer", "javascript", "offline"]
+}

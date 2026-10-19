@@ -1,0 +1,2 @@
+# Apenas para atualizar/reduzir as imagens. O aplicativo não precisa de Python.
+Pillow==12.0.0
